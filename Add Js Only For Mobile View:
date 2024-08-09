@@ -1,0 +1,23 @@
+
+Add Js Only For Mobile View:-
+
+$(document).ready(function() {
+  // Check if the device is a mobile device
+  function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+  }
+
+  // Function to handle click event
+  $('.click_event').on('click', function(event) {
+    // Check if it's a mobile device
+    if (isMobileDevice()) {
+      // Calculate the scroll position of the target element
+      var targetOffset = $('.click_event').offset().top;
+      
+      // Scroll the window to the target element
+      $('html, body').animate({
+        scrollTop: targetOffset
+      }, 500); // Adjust the duration as needed
+    }
+  });
+});
